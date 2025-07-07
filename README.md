@@ -18,14 +18,13 @@ A simple AI chatbot using Flask, jQuery, and CSS, integrated with the Gemma mode
 pip install flask openai flask-cors
 python app.py
 
-Home page![Screenshot (282)](https://github.com/user-attachments/assets/c992dd1c-b3e0-42a3-a85e-47868c6d885b)
+## 📸 Screenshots
 
-![Screenshot (283)](https://github.com/user-attachments/assets/87b6668d-752c-4321-9c80-e214fbd127d2)
+### 🟡 Home Page
+![Home](images/homepage.png)
 
-Before prompt tuning input the output is too big
-![Screenshot (284)](https://github.com/user-attachments/assets/21d3a823-845c-4c4e-a939-d9490ed09207)
+### 🔴 Before Prompt Tuning
+![Before](images/before.png)
 
-After Input is given
-![Screenshot (285)](https://github.com/user-attachments/assets/4fdb7d27-df9f-4273-8fb9-5f6c3d9da9f4)
-The response in tuned Perfectly🚀🚀🚀🚀🚀
-![Screenshot (286)](https://github.com/user-attachments/assets/f40f4205-842c-4d37-9b94-498d99f596df)
+### 🟢 After Prompt Tuning (Perfect Response)
+![After](images/after.png)
