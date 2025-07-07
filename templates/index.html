@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your-AI | Prompt-Tuned Chatbot</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div id="chat-box">
+    <h2>Your AI (Prompt-Tuned)</h2>
+
+    <label><strong>Custom Prompt (optional):</strong></label>
+    <input type="text" id="prompt" placeholder="e.g., Explain like a teacher">
+
+    <label><strong>Your Question:</strong></label>
+    <input type="text" id="question" placeholder="Ask something...">
+
+    <button id="send-btn">Send</button>
+
+    <div id="messages" style="margin-top: 20px;"></div>
+  </div>
+
+  <script>
+    $("#send-btn").on("click", function () {
+      const prompt = $("#prompt").val().trim();
+      const question = $("#question").val().trim();
+
+      if (question === "") return;
+
+      $("#messages").append(`<div class="message user"><strong>You:</strong> ${question}</div>`);
+      $("#question").val("");
+
+      $.ajax({
+        url: "/chat",
+        method: "POST",
+        contentType: "application/json",
+        data: JSON.stringify({ prompt, question }),
+        success: function (data) {
+          $("#messages").append(`<div class="message bot"><strong>Bot:</strong> ${data.reply}</div>`);
+        },
+        error: function (xhr) {
+          $("#messages").append(`<div class="message bot"><strong>Bot:</strong> Error: ${xhr.responseJSON?.reply || "Unknown error"}</div>`);
+        }
+      });
+    });
+
+    // Send on Enter key
+    $("#question").on("keypress", function (e) {
+      if (e.which === 13) $("#send-btn").click();
+    });
+  </script>
+</body>
+</html>
