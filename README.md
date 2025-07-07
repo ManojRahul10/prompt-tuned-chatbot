@@ -21,7 +21,7 @@ python app.py
 ## 📸 Screenshots
 
 ### 🟡 Home Page
-![Home](images/homepage.png)
+![Home](images/Screenshot (282).png)
 
 ### 🔴 Before Prompt Tuning
 ![Before](images/before.png)
